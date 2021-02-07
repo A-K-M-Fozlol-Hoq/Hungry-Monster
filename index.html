@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungry-monster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- This section will show details of any meal -->
+    <section class="details-section">
+        <div id="details"></div>
+        
+        <div class="text-center" id="ingredient-section">
+            <h4 id="ingredient-header"></h4>
+            <ul id="ingredient"></ul>
+        </div>
+    </section>
+
+    <!-- This section will take input to search meal -->
+    <form>
+        <input id="meal-name" type="text" placeholder="Search for Meal" name="search2">
+        <button onclick="searchByName()" type="submit">Search</button>
+    </form>
+
+    <!-- This section will show meal after search! -->
+    <section id="search-meal"></section>
+
+    <!-- This is th default section -->
+    <section class="meals" id="meals"></section>
+    
+    
+    <script src="./script.js"></script>
+</body>
+</html>

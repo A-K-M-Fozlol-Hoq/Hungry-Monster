@@ -1,0 +1,57 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+form{
+    margin:auto;
+    max-width:400px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    overflow: hidden;
+}
+form input {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 70%;
+    background: #f1f1f1;
+} 
+form button {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    background: #F06C4E;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+} 
+form button:hover {
+    background: #0b7dda;
+}
+
+
+.meals{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+}
+.meal{
+    border: 1px solid goldenrod;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    width: 280px;
+    background-color: #F8F7F5;
+    margin: auto;
+}
+.meal img{
+    width: 100%;
+    height: auto;
+}
+.text-center{
+    text-align: center;
+}
