@@ -1,27 +1,29 @@
-// Starting point
-fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Japanese')
-.then(res => res.json())
-.then(data=>{
-    displayMeals(data.meals,'meals');
-})
-
-
-// This function will search meal by meal name
-const searchByName=()=>{
+const searchMealByName = ()=>{
     const mealName= document.getElementById('meal-name').value;
-    const namePart= mealName.charAt(0).toLowerCase();
-    const url=`https://www.themealdb.com/api/json/v1/1/search.php?f=${namePart}`;
-    //note : This URL does not work every time 
-    fetch(url)
-    .then(res => res.json())
-    .then(data=>{
-        displayMeals(data.meals,'meals');
-    })
-    .catch(error=>{
-        console.log(error);
-        alert('Server side error, Please search again. This URL does not work every time ')
-    })
-    
+    if(mealName && mealName.trim().length>0){
+        // Search by meal name
+        const url=`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealName}`;
+        fetch(url)
+        .then(res => res.json())
+        .then(data=>{
+            const searchedMeal= document.getElementById('searched-meal')
+            searchedMeal.innerText='';
+            const p = document.createElement('p');
+            p.innerText=`result searched for [${mealName}]:`
+            searchedMeal.appendChild(p);
+            if(data.meals !== null){
+                displayMeals(data.meals,'searched-meal');
+            }
+            else{
+                const h3 = document.createElement('h3');
+                h3.innerText=`No Food found for [${mealName}]:`
+                searchedMeal.appendChild(h3);
+            }
+        })
+    }
+    else{
+        alert('Please Enter food name before search')
+    }
 }
 
 
@@ -33,7 +35,7 @@ const displayMeals=(data,ID)=>{
         const mealDiv= document.createElement('div');
         mealDiv.className='meal';
         const mealInfo= `
-        <img class="meal-img" src="${meal.strMealThumb}"/>
+        <img onclick="showDetail(${meal.idMeal})" class="meal-img" src="${meal.strMealThumb}"/>
         <a onclick="showDetail(${meal.idMeal})" href="#"><p>${meal.strMeal}</p></a>
         `;
         mealDiv.innerHTML=mealInfo;
@@ -42,7 +44,7 @@ const displayMeals=(data,ID)=>{
 }
 
 
-// After clicking any meal name, this function will execute and it will display detail about the meal/food.
+// After clicking any meal name, this function will execute and it will display details about the meal/food.
 const showDetail=id=>{
     // Search by ID
     const url=`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`;

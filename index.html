@@ -18,16 +18,13 @@
     </section>
 
     <!-- This section will take input to search meal -->
-    <form>
+    <section class="form">
         <input id="meal-name" type="text" placeholder="Search for Meal" name="search2">
-        <button onclick="searchByName()" type="submit">Search</button>
-    </form>
+        <button  onclick="searchMealByName()"  type="submit">Search</button>
+    </section>
 
-    <!-- This section will show meal after search! -->
-    <section id="search-meal"></section>
-
-    <!-- This is th default section -->
-    <section class="meals" id="meals"></section>
+    <!-- This section will show searched meal after search! -->
+    <section id="searched-meal"></section>
     
     
     <script src="./script.js"></script>

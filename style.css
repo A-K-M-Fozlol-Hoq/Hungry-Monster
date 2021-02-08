@@ -3,14 +3,14 @@
     margin: 0;
     padding: 0;
 }
-form{
+.form{
     margin:auto;
     max-width:400px;
     margin-top: 50px;
     margin-bottom: 50px;
     overflow: hidden;
 }
-form input {
+.form input {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
@@ -18,7 +18,7 @@ form input {
     width: 70%;
     background: #f1f1f1;
 } 
-form button {
+.form button {
     float: left;
     width: 30%;
     padding: 10px;
@@ -29,12 +29,12 @@ form button {
     border-left: none;
     cursor: pointer;
 } 
-form button:hover {
+.form button:hover {
     background: #0b7dda;
 }
 
 
-.meals{
+#searched-meal{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 30px;
@@ -47,6 +47,7 @@ form button:hover {
     width: 280px;
     background-color: #F8F7F5;
     margin: auto;
+    cursor: pointer;
 }
 .meal img{
     width: 100%;
